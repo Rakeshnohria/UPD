@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_new_listing"
+        android:icon="@drawable/new_listing_menu"
+        android:title="@string/nav_new_listing" />
+
+    <item
+        android:id="@+id/nav_faq"
+        android:icon="@drawable/faq_menu"
+        android:title="@string/nav_faq" />
+    <item
+        android:id="@+id/nav_support"
+        android:icon="@drawable/support_menu"
+        android:title="@string/nav_support" />
+
+    <item
+        android:id="@+id/nav_add_account"
+        android:icon="@drawable/add_account_menu"
+        android:title="@string/add_account" />
+
+    <item
+        android:id="@+id/nav_switch_account"
+        android:icon="@drawable/switch_user_menu"
+        android:title="@string/switch_account"
+        app:actionLayout="@layout/switch_to_layout"/>
+
+    <item
+        android:id="@+id/nav_log_out"
+        android:icon="@drawable/logout_menu"
+        android:title="@string/nav_log_out" />
+
+</menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#3B4057</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorPrimary">#3B4057</color>
+    <color name="colorAccent">#3B4057</color>
+    <color name="stroke_grey">#d3d3d3</color>
+    <color name="progress_grey">#999999</color>
+    <color name="progress_background">#FFFFFF</color>
+    <color name="progress">#FFFFFF</color>
+    <color name="link_color">#0033CC</color>
+    <color name="dark_yellow_color">#EB984E</color>
+    <color name="colorBlack">#000000</color>
+    <color name="darkTransparentColor">#88000000</color>
+    <color name="green">#009688</color>
+    <color name="dark_green">#009688</color>
+    <color name="badge_red_color">#FF0000</color>
+    <color name="buttonGreen">#118000</color>
+<!--verify button colour-->
+    <color name="button_fill">#424242</color>
+    <color name="button_fill_alpha">#9e9e9e</color>
+</resources>

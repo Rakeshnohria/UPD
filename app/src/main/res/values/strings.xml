@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">UPD Prints</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="enter_username">Username</string>
+    <string name="enter_password"> Password</string>
+    <string name="upload_data">Upload</string>
+    <string name="login">Login</string>
+    <string name="login_successful">Login successful</string>
+    <string name="title_activity_upload_data">UploadData</string>
+    <string name="title_activity_agent_list">AgentListActivity</string>
+    <string name="date">Date of Birth (optional)</string>
+    <string name="upload_image">Upload image</string>
+    <string name="upload_successful">Upload successful</string>
+    <string name="take_photo">Take photo</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_photo">Add photo</string>
+    <string name="enter_name_of_deceased">Name of Deceased</string>
+    <string name="enter_id">CaseID (optional)</string>
+    <string name="enter_first_name">Customer First Name (optional)</string>
+    <string name="enter_email">Customer Email (optional)</string>
+    <string name="please_select_an_image">Please upload an image</string>
+    <string name="ok_message">OK</string>
+    <string name="welcome_message">Welcome</string>
+    <string name="backpressed_message">Press again to exit</string>
+    <string name="log_out">Log Out</string>
+    <string name="permissions_message">You need to enable all the permissions to use this application.
+        You may also enable them from Settings>Applications>UploadData>Permissions Thank You.</string>
+    <string name="connected_to_network">Connected</string>
+    <string name="not_connected_to_network">Not connected, please check your network connection</string>
+    <string name="invalid_details">Invalid email or password</string>
+    <string name="unable_to_connect">Unable to connect at the moment. Try again later</string>
+    <string name="failed_to_upload">Failed to upload data. Try again</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading</string>
+    <string name="snackbar_action">Action</string>
+    <string name="uploading">Uploading...</string>
+    <string name="saving_data">Saving data…</string>
+    <string name="shared_preferences_data">spdata</string>
+    <string name="shared_preferences_login_key">login_status</string>
+    <string name="shared_preferences_customer_id_key">customer_id</string>
+    <string name="shared_preferences_cutomer_subscribed_value">is_subscribed_user</string>
+    <string name="non_empty_username">Username cannot be empty!</string>
+    <string name="non_empty_password">Password cannot be empty!</string>
+    <string name="non_empty_name_of_deceased">Name of deceased cannot be empty!</string>
+    <string name="non_empty_date">Date cannot be empty!</string>
+    <string name="incorrect_email">Incorrect email!</string>
+    <string name="request_an_account_with_upd"><u>Request an account with UPD Urns >></u></string>
+    <string name="request_more_app_info"><u>More App Info >></u></string>
+    <string name="email_updurns_com"><u>email@updurns.com</u></string>
+    <string name="_800_590_4133"><u>(800) 590-4133</u></string>
+    <string name="scan">Scan</string>
+    <string name="camera">Camera</string>
+    <string name="device_error">Scanner device not connected.</string>
+    <string name="search">Search</string>
+    <string name="already_logged_in">You have already logged in with the same email address. Please try a different one.</string>
+    <string name="ok">ok</string>
+    <string name="your_upd_id">Your Upd Id is: </string>
+    <string name="upd_id">UPDID </string>
+    <string name="case_id">Case ID:</string>
+
+
+    <!--Agent Listing-->
+    <string name="deceased_listing">Deceased Listing</string>
+    <string name="search_hint">Search_hint</string>
+    <string name="no_results_found">No results found</string>
+    <string name="searching">Searching</string>
+    <string name="photo_data">photo_data</string>
+    <string name="bundle">Bundle</string>
+    <string name="no_fingerprints">No fingerprints</string>
+    <string name="no_more_records_found">No more records found</string>
+    <string name="alert_image_button">alert_image_button</string>
+    <string name="created_at">Created On:</string>
+    <string name="modified_at">Modified On:</string>
+    <string name="agent_listing">Agent Listing</string>
+
+    <!-- Add Image Activity-->
+    <string name="print">Prints</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="more_prints">More prints</string>
+    <string name="updated_successfully">Customer details updated successfully</string>
+
+    <!--Help Activity-->
+    <string name="retry_text">Retry</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home_screen">HomeScreenActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <!--Navigation Menu-->
+    <string name="nav_new_listing">New Listing</string>
+    <string name="switch_account">Switch to another account</string>
+    <string name="add_account">Add new account</string>
+    <string name="nav_faq">FAQs</string>
+    <string name="nav_support">Support</string>
+    <string name="nav_log_out">Log Out</string>
+    <string name="badge_count_big">99+</string>
+
+    <!--Select Account Activity-->
+    <string name="select_account_hint">Please select the account you want to switch to : </string>
+    <string name="done_text">Done</string>
+
+    <!--verify Finger Print-->
+    <string name="response">Response</string>
+    <string name="verify">Verify</string>
+    <string name="add_fingerprint">Add FingerPrint</string>
+    <string name="verify_fingerPrint">Verify</string>
+    <string name="already_verified">Verified</string>
+    <string name="fingerprint_stored">Fingerprint scanned successfully.</string>
+    <string name="fingerprint_error">Fingerprint not matched. Please try again!</string>
+    <string name="verified_success">Fingerprint Verified</string>
+    <string name="verifying">Verifying...</string>
+    <string name="alert_dialog_title">UPD</string>
+    <string name="add_to_verify">Add fingerprint to verify</string>
+    <string name="please_scan">Please scan fingerprint for verification</string>
+
+
+</resources>

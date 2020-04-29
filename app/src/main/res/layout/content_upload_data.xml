@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.FingerprintCapture.UploadData"
+    tools:showIn="@layout/activity_upload_data">
+
+
+    <RelativeLayout
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <ImageButton
+            android:id="@+id/action_bar_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_25"
+            android:background="@drawable/back_icon_primary_color"
+            android:src="@drawable/back_icon_primary_color" />
+
+        <TextView
+            android:id="@+id/text_view_fingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_20"
+            android:text="@string/app_name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_upload_screen_size"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/text_view_fingerprint">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/progress_bar_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/edit_text_margin_vertical"
+                        android:layout_marginBottom="@dimen/edit_text_margin_vertical"
+                        android:background="@color/stroke_grey"
+                        android:elevation="@dimen/elevation_progress"
+                        android:orientation="vertical"
+                        android:padding="@dimen/fab_margin"
+                        android:visibility="gone">
+
+                        <ProgressBar
+                            android:id="@+id/circularProgressbar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="@dimen/progress_bar_width"
+                            android:layout_height="@dimen/progress_bar_height"
+                            android:layout_gravity="center_horizontal"
+                            android:indeterminate="false"
+                            android:max="100"
+                            android:progress="50"
+                            android:progressDrawable="@drawable/circular_progress_bar"
+                            android:secondaryProgress="100" />
+
+                        <TextView
+                            android:id="@+id/tv_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/progress_text" />
+                        <!--   <TextView
+                               android:id="@+id/tv_uploading"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:text="@string/uploading"
+                               android:textColor="@color/colorPrimaryDark"
+                               android:layout_gravity="center_horizontal"
+                               />-->
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical"
+                        android:padding="@dimen/fab_margin">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enter_name_of_deceased" />
+
+                        <EditText
+                            android:id="@+id/et_user_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_margin_vertical"
+                            android:layout_marginBottom="@dimen/edit_text_margin_vertical"
+                            android:background="@drawable/custom_edit_text"
+
+                            android:padding="@dimen/edit_text_padding"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enter_id" />
+                        <EditText
+                            android:id="@+id/et_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/et_user_name"
+                            android:layout_marginTop="@dimen/edit_text_margin_vertical"
+                            android:layout_marginBottom="@dimen/edit_text_margin_vertical"
+                            android:background="@drawable/custom_edit_text"
+
+                            android:padding="@dimen/edit_text_padding"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/edit_text_size" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/date" />
+                        <TextView
+                            android:id="@+id/et_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/et_id"
+                            android:layout_marginTop="@dimen/edit_text_margin_vertical"
+                            android:layout_marginBottom="@dimen/edit_text_margin_vertical"
+                            android:background="@drawable/custom_edit_text"
+
+                            android:padding="@dimen/edit_text_padding"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/edit_text_size" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enter_first_name" />
+                        <EditText
+                            android:id="@+id/et_first_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/et_date"
+                            android:layout_marginTop="@dimen/edit_text_margin_vertical"
+                            android:layout_marginBottom="@dimen/edit_text_margin_vertical"
+                            android:background="@drawable/custom_edit_text"
+
+                            android:inputType="textPersonName"
+                            android:padding="@dimen/edit_text_padding"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/edit_text_size" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enter_email" />
+                        <EditText
+                            android:id="@+id/et_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/et_first_name"
+                            android:layout_marginTop="@dimen/edit_text_margin_vertical"
+                            android:layout_marginBottom="@dimen/edit_text_margin_vertical"
+                            android:background="@drawable/custom_edit_text"
+
+                            android:inputType="textEmailAddress"
+                            android:padding="@dimen/edit_text_padding"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/edit_text_size" />
+
+
+
+                        <!--
+                            <ImageView
+                                android:id="@+id/thumbnail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/user_image" />-->
+
+                        <LinearLayout
+                            android:id="@+id/camera_scan_linear_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/et_email"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:id="@+id/button_options"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <com.FingerprintCapture.CustomComponents.CustomButton
+                                    android:id="@+id/btn_camera"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="@dimen/upload_screen_horizontal_button_margin"
+                                    android:layout_weight="1"
+                                    android:background="@color/colorPrimaryDark"
+                                    android:text="@string/camera"
+                                    android:textColor="@color/colorWhite" />
+
+                                <com.FingerprintCapture.CustomComponents.CustomButton
+                                    android:id="@+id/btn_scan"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@color/colorPrimaryDark"
+                                    android:text="@string/scan"
+                                    android:textColor="@color/colorWhite" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/user_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/user_image_view_dimensions"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/edit_text_margin_vertical"
+                                android:layout_marginBottom="@dimen/edit_text_margin_vertical" />
+
+                            <LinearLayout
+                                android:id="@+id/upload_data_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/user_image"
+                                android:layout_margin="@dimen/upload_screen_horizontal_margin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <com.FingerprintCapture.CustomComponents.CustomButton
+                                    android:id="@+id/btn_upload_data"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@color/colorPrimaryDark"
+                                    android:text="@string/upload_data"
+                                    android:textColor="@color/colorWhite" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/button_options_edit_print"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/camera_scan_linear_layout"
+                            android:layout_marginLeft="@dimen/upload_screen_horizontal_margin"
+                            android:layout_marginTop="@dimen/margin_20"
+                            android:orientation="horizontal">
+
+                            <com.FingerprintCapture.CustomComponents.CustomButton
+                                android:id="@+id/btn_edit"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/colorPrimaryDark"
+                                android:text="@string/edit"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorWhite" />
+
+                            <com.FingerprintCapture.CustomComponents.CustomButton
+                                android:id="@+id/btn_print"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/upload_screen_horizontal_button_margin"
+                                android:layout_weight="1"
+                                android:background="@color/colorPrimaryDark"
+                                android:text="@string/print"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorWhite" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/verify_btn_container"
+                            android:layout_width="match_parent"
+                            android:layout_marginLeft="@dimen/upload_screen_horizontal_margin"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content">
+                            <com.FingerprintCapture.CustomComponents.CustomButton
+                                android:id="@+id/verify_btn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="PlayfairDisplaySC-Regular.otf"
+                                android:background="@color/colorPrimaryDark"
+                                android:textColor="@color/colorWhite"
+                                android:textAllCaps="false"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

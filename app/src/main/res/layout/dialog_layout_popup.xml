@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <ImageView
+        android:id="@+id/full_screeen_image"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:scaleType="centerCrop" />
+
+    <ImageButton
+        android:id="@+id/closeView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"
+        android:background="@drawable/cross_icon"
+        android:contentDescription="@string/app_name"
+        android:padding="5dp" />
+</FrameLayout>

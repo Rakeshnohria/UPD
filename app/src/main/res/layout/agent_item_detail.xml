@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentItemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+    <RelativeLayout
+        android:id="@+id/upper_layout"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_10">
+
+        <TextView
+            android:id="@+id/nameDeceased"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_4"
+            android:singleLine="true"
+            android:includeFontPadding="false"
+            android:hint="name"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/created_date"
+            android:hint="@string/created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameDeceased"
+            android:padding="@dimen/padding_4"
+            android:singleLine="true"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/modified_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/created_date"
+            android:hint="@string/modified_at"
+            android:includeFontPadding="false"
+            android:padding="@dimen/padding_4"
+
+            android:singleLine="true"
+            android:textColor="@color/colorBlack" />
+        <TextView
+            android:id="@+id/upd_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/modified_date"
+            android:hint="@string/upd_id"
+            android:includeFontPadding="false"
+            android:padding="@dimen/padding_4"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack" />
+        <TextView
+            android:id="@+id/case_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="@string/case_id"
+            android:padding="@dimen/padding_4"
+            android:includeFontPadding="false"
+            android:layout_below="@id/upd_id"
+            android:visibility="gone"
+            android:textColor="@color/colorBlack" />
+        <!-- <ImageButton
+             android:id="@+id/alert_no_image_image_button"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentEnd="true"
+             android:layout_alignParentRight="true"
+             android:layout_centerVertical="true"
+             android:background="@null"
+             android:contentDescription="@string/alert_image_button"
+             android:src="@drawable/warning_icon"
+             android:visibility="invisible" />-->
+    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="@dimen/margin_15"
+            android:layout_gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/verified_fingerprint_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/margin_15"
+                android:src="@drawable/finger_print_icon"
+                android:tint="@color/colorBlack"
+                android:visibility="visible"
+                 />
+
+            <CheckBox
+                android:id="@+id/alert_no_image_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:checked="true"
+                android:clickable="false"
+                android:contentDescription="@string/alert_image_button"
+                android:enabled="true"
+                android:theme="@style/CheckBoxes"
+                android:visibility="visible" />
+        </LinearLayout>
+        </LinearLayout>
+
+
+    <View
+        android:id="@+id/sequence_row_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_1"
+       android:layout_alignParentBottom="true"
+        android:background="@color/progress_grey" />
+</RelativeLayout>
