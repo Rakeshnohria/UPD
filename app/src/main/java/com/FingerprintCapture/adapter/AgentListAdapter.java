@@ -62,25 +62,25 @@ public class AgentListAdapter extends RecyclerView.Adapter<AgentListAdapter.Agen
         }
         TextView nameofDecreased, createdDate, modifiedDate, updId,caseId;
         CheckBox noImageAlertImageButton;
-        ImageView verifiedIcon;
+//        ImageView verifiedIcon;
 
         nameofDecreased=pview.findViewById(R.id.nameDeceased);
-        verifiedIcon =pview.findViewById(R.id.verified_fingerprint_icon);
+//        verifiedIcon =pview.findViewById(R.id.verified_fingerprint_icon);
         noImageAlertImageButton=pview.findViewById(R.id.alert_no_image_image_button);
         createdDate=pview.findViewById(R.id.created_date);
         modifiedDate=pview.findViewById(R.id.modified_date);
         updId=pview.findViewById(R.id.upd_id);
         caseId=pview.findViewById(R.id.case_id);
 
-        pview.findViewById(R.id.verified_fingerprint_icon).setVisibility(visibility);
+//        pview.findViewById(R.id.verified_fingerprint_icon).setVisibility(visibility);
         nameofDecreased.setText(pCustomerData.getName());
-        if (pCustomerData.getFingerPrint() == 0) {
-            verifiedIcon.setColorFilter(mContext.getResources().getColor(R.color.progress_grey));
-        } else if (pCustomerData.getVerifiedUser() == Constants.sVerified) {
-            verifiedIcon.setColorFilter(mContext.getResources().getColor(R.color.buttonGreen));
-        } else {
-            verifiedIcon.setColorFilter(mContext.getResources().getColor(R.color.badge_red_color));
-        }
+//        if (pCustomerData.getFingerPrint() == 0) {
+//            verifiedIcon.setColorFilter(mContext.getResources().getColor(R.color.progress_grey));
+//        } else if (pCustomerData.getVerifiedUser() == Constants.sVerified) {
+//            verifiedIcon.setColorFilter(mContext.getResources().getColor(R.color.buttonGreen));
+//        } else {
+//            verifiedIcon.setColorFilter(mContext.getResources().getColor(R.color.badge_red_color));
+//        }
         if (!pCustomerData.getAgentId().isEmpty()) {
             caseId.setVisibility(View.VISIBLE);
             caseId.setText(mContext.getString(R.string.case_id)+Constants.sSPACE+pCustomerData.getAgentId());
