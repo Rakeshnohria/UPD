@@ -85,7 +85,7 @@ import retrofit2.Retrofit;
 import static com.FingerprintCapture.Utilities.Constants.sCUSTOMER_DATA;
 
 
-public class UploadData extends Activity implements EnrollSuccess{
+public class UploadData extends Activity implements EnrollSuccess {
     // Data for scan
     private static Button mButtonScan;
     //    private static TextView mScannerInfo;
@@ -481,7 +481,8 @@ public class UploadData extends Activity implements EnrollSuccess{
             }
         });
     }
-    private void call(){
+
+    private void call() {
         userImage.setClickable(false);
 //                        date.setEnabled(false);
         name.setEnabled(false);
@@ -492,9 +493,10 @@ public class UploadData extends Activity implements EnrollSuccess{
         email.setEnabled(false);
         upload.setEnabled(false);
         mButtonScan.setEnabled(false);
-        callProgress();
+//        callProgress();
         uploadService();
     }
+
     private boolean validationForUpdate() {
         if (name.getText().toString().trim().equals("")) {
             name.setError(getString(R.string.non_empty_name_of_deceased));
@@ -588,13 +590,12 @@ public class UploadData extends Activity implements EnrollSuccess{
         }
         //result after add fingerprint
         else if (resultCode == Constants.RequestCode.sGALLERY_DATA_CODE && data != null) {
-            CustomerData customerData =data.getParcelableExtra(sCUSTOMER_DATA);
+            CustomerData customerData = data.getParcelableExtra(sCUSTOMER_DATA);
             if (customerData != null) {
                 mCustomerData = customerData;
                 setVerifyButtonVisibilty(mIsSubscribed);
             }
         }
-
 
 
         EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
@@ -654,7 +655,6 @@ public class UploadData extends Activity implements EnrollSuccess{
     }
 
 
-
     private void uploadService() {
         System.out.println("mcaptured image uri" + mCapturedImageURI + "hello upload");
         FingerprintCaptureApplication.getApplicationInstance().showProgress(this, getString(R.string.saving_data));
@@ -702,18 +702,20 @@ public class UploadData extends Activity implements EnrollSuccess{
 //                    } else {
 //                        success(uploadImageResponse);
 //                    }
-                        success(uploadImageResponse);
+                    success(uploadImageResponse);
 
                 } else {
-                    FingerprintCaptureApplication.getApplicationInstance().showSnackBar(rootView, getString(R.string.failed_to_upload));
-                    fail();
+//                    FingerprintCaptureApplication.getApplicationInstance().showSnackBar(rootView, getString(R.string.failed_to_upload));
+                    fail(response.body().get(status).toString());
+//                    Toast.makeText(UploadData.this,"OnFail"+response.body().get(status).toString(),Toast.LENGTH_LONG).show();
                 }
             }
 
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                fail();
+                fail(t.getMessage());
+//                Toast.makeText(UploadData.this,"OnFailure"+t,Toast.LENGTH_LONG).show();
             }
 
         });
@@ -735,12 +737,12 @@ public class UploadData extends Activity implements EnrollSuccess{
         FingerprintCaptureApplication.getApplicationInstance().showSnackBar(rootView, getString(R.string.upload_successful));
 */
         date.setError(null);
-        String message,title="";
+        String message, title = "";
         message = uploadImageResponse.getCustomerData().get(0).getUpdId();
-        title=getString(R.string.upd_id);
+        title = getString(R.string.upd_id);
 
         if (getIntent() != null && getIntent().getParcelableExtra(sCUSTOMER_DATA) != null) {
-            title="";
+            title = "";
             message = getString(R.string.updated_successfully);
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(UploadData.this);
@@ -782,7 +784,7 @@ public class UploadData extends Activity implements EnrollSuccess{
     also called when on response status !=200
      */
     @Override
-    public void fail() {
+    public void fail(String message) {
         FingerprintCaptureApplication.getApplicationInstance().hideProgress();
         FingerprintCaptureApplication.getApplicationInstance().showSnackBar(rootView, getString(R.string.failed_to_upload));
         if (progressLayout != null) {
@@ -849,44 +851,6 @@ public class UploadData extends Activity implements EnrollSuccess{
                 cursor.close();
             }
         }
-    }
-
-    private void callProgress() {
-        progressLayout = (LinearLayout) findViewById(R.id.progress_bar_layout);
-        tvProgress = (TextView) findViewById(R.id.tv_progress);
-
-        progressStatus = minProgress;
-        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.circular_progress_bar);
-        mProgress = (ProgressBar) findViewById(R.id.circularProgressbar);
-
-        //mProgress.setSecondaryProgress(maxProgress);
-        // mProgress.setMax(maxProgress);
-        mProgress.setProgressDrawable(drawable);
-       /* new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                while (progressStatus < maxProgress) {
-                    progressStatus += 1;
-
-                    handler.post(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            mProgress.setProgress(progressStatus);
-                            tvProgress.setText(progressStatus + "%");
-
-                        }
-                    });
-                    try {
-                        Thread.sleep(THREAD_SLEEP_TIME);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
-*/
     }
 
     private boolean checkInternetConnection() {
@@ -1194,7 +1158,6 @@ public class UploadData extends Activity implements EnrollSuccess{
     private void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-
 
 
 }

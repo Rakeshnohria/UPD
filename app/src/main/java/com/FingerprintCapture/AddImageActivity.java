@@ -36,6 +36,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.FingerprintCapture.BioServerWebServices.BioServerServices.EnrollSuccess;
 import com.FingerprintCapture.Services.AllUrl;
@@ -67,7 +68,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class AddImageActivity extends AppCompatActivity implements View.OnClickListener, EnrollSuccess, ProgressRequestBody.UploadCallbacks{
+public class AddImageActivity extends AppCompatActivity implements View.OnClickListener, EnrollSuccess,
+        ProgressRequestBody.UploadCallbacks{
  //   public static boolean mFrame = true;
 //    public static boolean mLFD = false;
 //    public static boolean mInvertImage = false;
@@ -92,7 +94,7 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
     private String mBitmapImage="";
     private File imageFile, thumbNailfile;
     private String mCustomerId;
-    private LinearLayout progressLayout;
+//    private LinearLayout progressLayout;
     int progressStatus = 0;
     private Handler handler = new Handler();
  //   public static boolean mUsbHostMode = true;
@@ -147,15 +149,6 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
 
         /*mCustomerData = UploadData.mCustomerData;
         isUpdateDataCall = true;*/
-    }
-
-    private void callProgress() {
-        progressLayout = (LinearLayout) findViewById(R.id.progress_bar_layout);
-        progressLayout.setVisibility(View.GONE);
-        tvProgress = (TextView) findViewById(R.id.tv_progress);
-        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.circular_progress_bar);
-        mProgress = (ProgressBar) findViewById(R.id.circularProgressbar);
-        mProgress.setProgressDrawable(drawable);
     }
 
     public void initViews() {
@@ -380,14 +373,14 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
 
     private void uploadService()  {
 
-        progressLayout = (LinearLayout) findViewById(R.id.progress_bar_layout_upload);
-        progressLayout.setVisibility(View.GONE);
-        tvProgress = (TextView) findViewById(R.id.tv_progress_upload);
-        mProgress = (ProgressBar) findViewById(R.id.circularProgressbar_upload);
-        mProgress.setProgress(0);
+//        progressLayout = (LinearLayout) findViewById(R.id.progress_bar_layout_upload);
+//        progressLayout.setVisibility(View.GONE);
+//        tvProgress = (TextView) findViewById(R.id.tv_progress_upload);
+//        mProgress = (ProgressBar) findViewById(R.id.circularProgressbar_upload);
+//        mProgress.setProgress(0);
 
         mBackButton.setEnabled(false);
-     //   FingerprintCaptureApplication.getApplicationInstance().showProgress(this, getString(R.string.saving_data));
+        FingerprintCaptureApplication.getApplicationInstance().showProgress(this, getString(R.string.saving_data));
         System.out.println("mcaptured image uri" + mCapturedImageURI + "hello upload");
         Retrofit retrofit = RestClient.build(AllUrl.baseUrl);
         UserApi userApi = retrofit.create(UserApi.class);
@@ -452,30 +445,32 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
 //                    }
                     success(uploadImageResponse);
                 } else {
-                   fail();
+                   fail(response.body().get(status).toString());
+//                    Toast.makeText(AddImageActivity.this,"OnFail"+response.body().get(status).toString(),Toast.LENGTH_LONG).show();
                 }
             }
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
 
-                fail();
-
+                fail(t.getMessage());
+//                Toast.makeText(AddImageActivity.this,"OnFailure"+t,Toast.LENGTH_LONG).show();
                }
         });
 
 
     }
     @Override
-    public void fail() {
+    public void fail(String message) {
         mBackButton.setEnabled(true);
-        progressLayout.setVisibility(View.GONE);
+//        progressLayout.setVisibility(View.GONE);
         userImage.setClickable(true);
         mCameraButton.setEnabled(true);
         mButtonScan.setEnabled(true);
         isProcessing = false;
         mMorePrintsButton.setEnabled(true);
-        mUploadButton.setEnabled(true);
         userImage.setClickable(true);
+
+        mUploadButton.setEnabled(true);
         FingerprintCaptureApplication.getApplicationInstance().hideProgress();
         FingerprintCaptureApplication.getApplicationInstance().showSnackBar(mRootView,
                 getString(R.string.unable_to_connect));
@@ -485,7 +480,6 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
         alertDialog.setPositiveButton(getString(R.string.retry), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 uploadImage();
-                callProgress();
             }
         });
 
@@ -506,8 +500,8 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
         mBackButton.setEnabled(true);
 
             //progressDialog.dismiss();
-        if (progressLayout!=null)
-            progressLayout.setVisibility(View.GONE);
+//        if (progressLayout!=null)
+//            progressLayout.setVisibility(View.GONE);
             FingerprintCaptureApplication.getApplicationInstance().setUpdated(true);
             isProcessing = false;
             FingerprintCaptureApplication.getApplicationInstance().hideProgress();
@@ -564,6 +558,13 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setData() {
+
+
+
+
+
+
+
         Intent intent = new Intent();
         intent.putExtra(Constants.sCUSTOMER_DATA, mCustomerData);
         setResult(Constants.RequestCode.sGALLERY_DATA_CODE, intent);
@@ -731,10 +732,10 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onProgressUpdate(int percentage, Boolean showProgress_) {
-        if (showProgress_)
-            progressLayout.setVisibility(View.VISIBLE);
-        mProgress.setProgress(percentage);
-        tvProgress.setText(percentage+"%");
+//        if (showProgress_)
+//            progressLayout.setVisibility(View.VISIBLE);
+//        mProgress.setProgress(percentage);
+//        tvProgress.setText(percentage+"%");
     }
 
     @Override
@@ -744,8 +745,8 @@ public class AddImageActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onFinish() {
-        mProgress.setProgress(100);
-        tvProgress.setText("100%");
+//        mProgress.setProgress(100);
+//        tvProgress.setText("100%");
     }
 
     public String  streamFileType(File file)

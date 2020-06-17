@@ -19,7 +19,7 @@ public class RestClient {
     private static final String AUTHENTICATION_HEADER = "Authorization";
     private static final String CONTENT_TYPE = "Content-type";
     private static final String CONTENT_TYPE_JSON = "application/json";
-    private static final int TIME_CONSTANT = 500;
+    private static final int TIME_CONSTANT = 5;
     private static Retrofit retrofit = null;
 
     public static Retrofit build(String url) {
@@ -35,8 +35,10 @@ public class RestClient {
 
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        return new OkHttpClient.Builder().connectTimeout(TIME_CONSTANT, TimeUnit.SECONDS).
-                readTimeout(TIME_CONSTANT, TimeUnit.SECONDS).addInterceptor(new Interceptor() {
+        return new OkHttpClient.Builder().connectTimeout(TIME_CONSTANT, TimeUnit.MINUTES).
+                readTimeout(TIME_CONSTANT, TimeUnit.MINUTES)
+                .writeTimeout(TIME_CONSTANT, TimeUnit.MINUTES)
+                .addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request original = chain.request();
