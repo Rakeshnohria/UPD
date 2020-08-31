@@ -2,6 +2,7 @@ package com.FingerprintCapture;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -26,11 +27,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +39,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.FingerprintCapture.BioServerWebServices.BioServerServices.EnrollSuccess;
 import com.FingerprintCapture.Services.AllUrl;
@@ -59,6 +58,7 @@ import com.futronictech.Scanner;
 import com.futronictech.SelectFileFormatActivity;
 import com.futronictech.UsbDeviceDataExchangeImpl;
 import com.futronictech.ftrWsqAndroidHelper;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

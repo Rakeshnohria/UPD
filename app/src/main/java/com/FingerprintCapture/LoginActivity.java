@@ -1,6 +1,7 @@
 package com.FingerprintCapture;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,11 +9,6 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -23,6 +19,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.FingerprintCapture.Services.AllUrl;
 import com.FingerprintCapture.Services.RestClient;
 import com.FingerprintCapture.Services.UserApi;
@@ -30,6 +30,7 @@ import com.FingerprintCapture.Utilities.Constants;
 import com.FingerprintCapture.Utilities.SharedPrefUtility;
 import com.FingerprintCapture.application.FingerprintCaptureApplication;
 import com.FingerprintCapture.models.Account;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;

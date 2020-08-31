@@ -1,6 +1,6 @@
 package com.FingerprintCapture.retorfitApiCalls.AgentListing;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.FingerprintCapture.R;
 import com.FingerprintCapture.Services.AllUrl;

@@ -2,15 +2,16 @@ package com.FingerprintCapture.CustomComponents;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by chicmic on 8/10/17.
  */
 
-public class CustomTextView extends TextView {
+public class CustomTextView extends androidx.appcompat.widget.AppCompatTextView {
     public CustomTextView(Context context) {
         super(context);
         initialize();
@@ -23,11 +24,6 @@ public class CustomTextView extends TextView {
 
     public CustomTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialize();
-    }
-
-    public CustomTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         initialize();
     }
 
